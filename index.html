@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Game Memory Pokemon</h1>
+  </header>
+  <main class="main">
+    <div class="game-container" id="game-container"></div>
+    <div id="scoreboard-element" class="scoreboard"></div>
+    <div class="game-info">
+      <p id="points-element" class="points">Total points:0</p>
+      <p id="combo-element" class="combo">X0</p>
+      <p id="fails-text">Fails=0</p>
+    </div>
+  </main>
+  <div id="modal" class="modal">
+    <form id="form" class="form">
+      <div class="form__field">
+        <label for="name" class="form__label">Name</label>
+        <input id="name" class="form__input" />
+      </div>
+      <div class="form__field">
+        <label for="level" class="form__label">Select Level</label>
+        <select name="level" id="level" class="form__select">
+          <option value="easy">Easy</option>
+          <option value="normal">Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <input type="submit" value="Start" class="form__submit" />
+    </form>
+  </div>
+
+  <div id="modal-win" class="modal-win">
+    <div class="modal-win__container">
+      <p class="modal-win__text">YOU WIN!</p>
+      <a href="#" id="modal-restart" class="modal-win__link">Restart</a>
+      <a href="https://www.youtube.com/c/doriandesings" class="modal-win__link">Exit</a>
+    </div>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

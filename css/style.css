@@ -1,0 +1,226 @@
+:root {
+  --yellow: #ffcc03;
+  --blue: #326abb;
+  --dark-blue: #1e3b71;
+  --red: #ee1515;
+  --black: #222224;
+  --white: #f0f0f0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  font-family: sans-serif;
+  color: var(--yellow);
+  text-align: center;
+}
+
+.main {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 80% 20%;
+  justify-content: center;
+}
+
+.scoreboard {
+  background-color: var(--dark-blue);
+  justify-self: start;
+  width: 80%;
+  border: 2px dashed var(--yellow);
+  font-size: 2rem;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  max-width: 1024px;
+  padding: 15px;
+  background-color: var(--dark-blue);
+  border: 2px dashed var(--yellow);
+}
+.card {
+  width: 140px;
+  height: 165px;
+  color: var(--blue);
+  border: 2px solid var(--black);
+  font-size: 3rem;
+  border-radius: 8px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.card--show {
+  transform: rotateY(180deg);
+}
+.card--show.card__back {
+  transform: scale(0);
+}
+.card__front,
+.card__back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  backface-visibility: hidden;
+}
+.card__img {
+  max-width: 100%;
+  padding: 10px;
+  pointer-events: none;
+}
+.card__back {
+  background-image: linear-gradient(
+      49deg,
+      rgba(0, 0, 0, 0.1) 50%,
+      transparent 40%
+    ),
+    linear-gradient(
+      var(--red) 48.5%,
+      var(--black) 48.5%,
+      var(--black) 52.5%,
+      var(--white) 52.5%
+    );
+}
+.card__back::before {
+  content: "?";
+  color: #000;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-color: var(--white);
+  border: 7px solid var(--black);
+  border-radius: 50%;
+  background-image: linear-gradient(
+    49deg,
+    rgba(0, 0, 0, 0.05) 50%,
+    transparent 40%
+  );
+}
+.card__front {
+  background-color: lightblue;
+  transform: rotateY(180deg);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.combo {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+
+.points,
+.fails {
+  font-size: 1.2rem;
+}
+
+.modal,
+.modal-win {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  transform: scale(0);
+  transition: transform 0.5s;
+  opacity: 0;
+}
+.modal-win {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 1.4rem;
+  justify-items: center;
+}
+
+.modal-win__container {
+  background-color: var(--blue);
+  padding: 2rem -1rem;
+  border-radius: 20px;
+  border: 3px solid var(--yellow);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modal-win__text {
+  margin: 0;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.modal-win__link {
+  text-decoration: none;
+  color: var(--yellow);
+  background-color: var(--dark-blue);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+.modal--show,
+.modal-win--show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue);
+  width: 325px;
+  height: 250px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: left;
+  font-size: 1.6em;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.form__label {
+  margin-bottom: 5px;
+}
+
+.form__input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--yellow);
+  border-bottom: 1px solid;
+  font-size: 1.3rem;
+}
+
+.form__submit {
+  background-color: var(--yellow);
+  border: none;
+  height: 40px;
+  width: 100px;
+  font-size: 1.3rem;
+  color: var(--dark-blue);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__select {
+  font-size: 1.4rem;
+}
